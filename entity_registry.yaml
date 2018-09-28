@@ -1,0 +1,20 @@
+media_player.arcast:
+  config_entry_id: 8c6b98488b4a480ab88aa677817b18fd
+  name:
+  platform: cast
+  unique_id: 64325ab1-b3bb-408b-4a77-d7e34fc2717f
+media_player.living_room_speaker_2:
+  config_entry_id: 8c6b98488b4a480ab88aa677817b18fd
+  name:
+  platform: cast
+  unique_id: 47a8d3f7-93ba-5a96-4534-f2994e3142d1
+media_player.audio:
+  config_entry_id: 8c6b98488b4a480ab88aa677817b18fd
+  name:
+  platform: cast
+  unique_id: e1237519-4d6f-5085-f35c-cfd1ca738773
+binary_sensor.0x00158d0002048e2e:
+  config_entry_id:
+  name: Fire alarm
+  platform: mqtt
+  unique_id: 0x00158d0002048e2e_smoke_zigbee2mqtt
