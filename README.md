@@ -11,3 +11,4 @@ Aside these I have installed
 
 - Let's encrypt
 - SSH Server
+- MQTT Zigbeer addon https://github.com/danielwelch/hassio-zigbee2mqtt
