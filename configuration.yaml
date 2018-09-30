@@ -69,6 +69,7 @@ sensor:
 # Text to speech
 tts:
   - platform: google
+  - base_url: !secret base_url
 
 # Cloud
 cloud:
