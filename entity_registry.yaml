@@ -18,3 +18,13 @@ binary_sensor.0x00158d0002048e2e:
   name: Fire alarm
   platform: mqtt
   unique_id: 0x00158d0002048e2e_smoke_zigbee2mqtt
+binary_sensor.0x00158d000232a95e:
+  config_entry_id:
+  name: Bedroom window
+  platform: mqtt
+  unique_id: 0x00158d000232a95e_contact_zigbee2mqtt
+binary_sensor.0x00158d000232a9f5:
+  config_entry_id:
+  name: Balcony door
+  platform: mqtt
+  unique_id: 0x00158d000232a9f5_contact_zigbee2mqtt
