@@ -65,8 +65,6 @@ sensor:
   - platform: mqtt
     name: Bridge state
     state_topic: "zigbee2mqtt/bridge/state"
-    username: 'aki_mqtt'
-    password: !secret mqtt_password
     icon: mdi:router-wireless
 
 # Text to speech
@@ -121,6 +119,7 @@ switch:
 
 mqtt:
   discovery: true
+  password: !secret mqtt_password
   birth_message:
     topic: 'hass/status'
     payload: 'online'
