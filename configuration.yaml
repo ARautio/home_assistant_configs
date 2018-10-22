@@ -81,10 +81,8 @@ script: !include scripts.yaml
 
 google_assistant:
   project_id: !secret ga_project_id
-  client_id: !secret ga_client_id
-  access_token: !secret ga_access_token
   api_key: !secret ga_api_key
-  exposed_domain:
+  exposed_domains:
     - light
     - group
   entity_config:
@@ -119,6 +117,7 @@ switch:
 
 mqtt:
   discovery: true
+  username: 'aki_mqtt'
   password: !secret mqtt_password
   birth_message:
     topic: 'hass/status'
@@ -138,4 +137,11 @@ timer:
     name: Time remaining
     duration: 600 # Updated this to the number of seconds you wish
 
+zwave:
+  usb_path: /dev/ttyACM1
+  config_path: /share/open-zwave/
 
+device_tracker:
+  - platform: asuswrt
+    host: 192.168.1.1
+    username: !secret device_username
