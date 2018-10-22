@@ -1,0 +1,43 @@
+title: Home
+# Include external resources
+
+resources:
+  - url: /local/mini-media-player.js?v=0.8.4
+    type: module
+  - url: /local/mini-graph-card.js?v=0.0.5
+    type: module
+
+views:
+  - title: Devices
+    id: devices
+    theme: dark-mode
+    cards:
+      - type: entities
+        title: Lights
+        entities:
+          -  light.yeelight_rgb_286c071079f6
+          -  light.yeelight_rgb_f0b429b7e6d3
+      - type: "custom:mini-graph-card"
+        entity: sensor.eurotronic_unknown_type0003_id0001_temperature
+        height: 100
+        line_width: 4
+        font_size: 75
+        color: '#3498db'
+      - type: entities
+        title: Players
+        entities:
+          - entity: media_player.arcast
+            type: "custom:mini-media-player"
+            show_progress: true
+            name: TV
+            group: true
+          - entity: media_player.audio
+            type: "custom:mini-media-player"
+            show_progress: true
+            name: Audio
+            group: true
+          - entity: media_player.living_room_speaker_2
+            type: "custom:mini-media-player"
+            show_progress: true
+            name: TV
+            group: true
