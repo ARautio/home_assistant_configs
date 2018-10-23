@@ -145,3 +145,4 @@ device_tracker:
   - platform: asuswrt
     host: 192.168.1.1
     username: !secret device_username
+    pub_key: !secret device_pub_key
