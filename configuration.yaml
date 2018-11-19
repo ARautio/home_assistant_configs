@@ -2,8 +2,8 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: 0
-  longitude: 0
+  latitude: 54.68916
+  longitude: 25.2798
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 0
   # metric for Metric, imperial for Imperial
@@ -85,6 +85,7 @@ google_assistant:
   exposed_domains:
     - light
     - group
+    - climate
   entity_config:
     light.yeelight_rgb_f0b429b7e6d3:
       expose: true
@@ -92,6 +93,10 @@ google_assistant:
     light.yeelight_rgb_286c071079f6:
       expose: true
       room: Bedroom
+    group.all_automation:
+      expose: false
+    group.all_devices:
+      expose: false
     group.all_lights:
       expose: false
     switch.tv:
@@ -100,7 +105,13 @@ google_assistant:
     switch.blinds_bedroom:
       expose: true
       room: Bedroom
-    
+    climate.eurotronic_unknown_type0003_id0001_cooling_1_2:
+      expose: true
+      room: Bedroom
+    climate.eurotronic_unknown_type0003_id0001_cooling_1:
+      expose: true
+      room: Living room
+
 switch:
   - platform: broadlink
     host: !secret rm_host
@@ -145,4 +156,7 @@ device_tracker:
   - platform: asuswrt
     host: 192.168.1.1
     username: !secret device_username
-    pub_key: !secret device_pub_key
+    ssh_key: !secret device_ssh_key
+
+ifttt:
+  key: !secret ifttt_key
