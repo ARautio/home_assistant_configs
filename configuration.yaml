@@ -66,6 +66,9 @@ sensor:
     name: Bridge state
     state_topic: "zigbee2mqtt/bridge/state"
     icon: mdi:router-wireless
+  - platform: seventeentrack
+    username: !secret 17trackusername
+    password: !secret 17trackpassword
 
 # Text to speech
 tts:
@@ -106,10 +109,10 @@ google_assistant:
       expose: true
       room: Bedroom
     climate.eurotronic_eur_spiritz_wall_radiator_thermostat_heat:
-      exposure: true
+      expose: true
       room: Living room
     climate.eurotronic_eur_spiritz_wall_radiator_thermostat_heat_2:
-      exposure: true
+      expose: true
       room: Bedroom
 
 
@@ -165,3 +168,4 @@ device_tracker:
 
 ifttt:
   key: !secret ifttt_key
+
