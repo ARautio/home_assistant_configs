@@ -105,6 +105,13 @@ google_assistant:
     switch.blinds_bedroom:
       expose: true
       room: Bedroom
+    climate.eurotronic_eur_spiritz_wall_radiator_thermostat_heat:
+      exposure: true
+      room: Living room
+    climate.eurotronic_eur_spiritz_wall_radiator_thermostat_heat_2:
+      exposure: true
+      room: Bedroom
+
 
 switch:
   - platform: broadlink
