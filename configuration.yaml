@@ -105,12 +105,6 @@ google_assistant:
     switch.blinds_bedroom:
       expose: true
       room: Bedroom
-    climate.eurotronic_unknown_type0003_id0001_cooling_1_2:
-      expose: true
-      room: Bedroom
-    climate.eurotronic_unknown_type0003_id0001_cooling_1:
-      expose: true
-      room: Living room
 
 switch:
   - platform: broadlink
@@ -150,13 +144,17 @@ timer:
 
 zwave:
   usb_path: /dev/ttyACM1
-  config_path: /share/open-zwave/
+  config_path: /share/open-zwave/config/
+
+# This has been commented because 
+# asuswrt:
+#    host: 192.168.1.1
+#    username: !secret device_username
+#    ssh_key: !secret device_ssh_key
 
 device_tracker:
-  - platform: asuswrt
-    host: 192.168.1.1
-    username: !secret device_username
-    ssh_key: !secret device_ssh_key
+  - platform: nmap_tracker
+    hosts: 192.168.1.100-255
 
 ifttt:
   key: !secret ifttt_key
