@@ -43,6 +43,8 @@ updater:
 
 # Discover some devices automatically
 discovery:
+  ignore:
+    - yeelight
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -62,13 +64,16 @@ sun:
 # Weather prediction
 sensor:
   - platform: yr
+    monitored_conditions:
+    - temperature
+    - symbol
   - platform: mqtt
     name: Bridge state
     state_topic: "zigbee2mqtt/bridge/state"
     icon: mdi:router-wireless
   - platform: seventeentrack
-    username: !secret 17trackusername
-    password: !secret 17trackpassword
+    username: !secret trackusername
+    password: !secret trackpassword
 
 # Text to speech
 tts:
@@ -169,3 +174,22 @@ device_tracker:
 ifttt:
   key: !secret ifttt_key
 
+light:
+  - platform: yeelight
+    devices: 
+      192.168.1.22:
+        name: Bedroom light
+        model: color1
+
+recorder:
+  purge_keep_days: 365
+  db_url: !secret recorder_db_url
+  include:
+    domains:
+      - binary_sensor
+      - climate
+      - device_tracker
+      - light
+      - sensor
+      - switch
+      - zwave
