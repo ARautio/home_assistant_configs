@@ -74,6 +74,8 @@ sensor:
   - platform: seventeentrack
     username: !secret trackusername
     password: !secret trackpassword
+  - platform: pi_hole
+    host: !secret pihole_host
 
 # Text to speech
 tts:
@@ -185,6 +187,8 @@ transmission:
   host: !secret transmission_ip
   username: !secret transmission_username
   password: !secret transmission_password
+
+system_health:
 
 recorder:
   purge_keep_days: 365
