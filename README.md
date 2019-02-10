@@ -5,6 +5,7 @@ Uses:
 - Chromecast
 - Yeelights
 - MQTT to get data from Zigbee protocol equipment (https://github.com/Koenkk/zigbee2mqtt)
+- ZWave through 
 - Broadlink RM Pro to control Blinds and LG TV.
 
 Aside these I have installed
@@ -12,7 +13,10 @@ Aside these I have installed
 - Let's encrypt
 - SSH Server
 - MQTT Zigbeer addon https://github.com/danielwelch/hassio-zigbee2mqtt
-
+- Pi Hole 
+- 17 Track
+- Recorder with MySQL connection and Grafana
+- Node-RED
 
 
 ## Things I have found out
@@ -54,3 +58,30 @@ Now I need to translate this to 20DFA35C (ON) and 20DF23DC (OFF). For ON I need 
 
 I will replace the second row with this and combine everything and then turn it back to Base64 and that's it.
 
+
+### 2. Getting Eurotronic Z-Wave Plus SPIRIT Thermostat working with Homeassistant
+
+At the time of buying these Eurotronic Spirit thermostats, Homeassistant didn't use the version of OpenZwave (which Homeassistant uses to control zwave devices) which included the configuration files for these thermostats. This made them work less reliably than I hoped.
+
+Luckily people had figured this out before me (https://community.home-assistant.io/t/spirit-z-wave-plus/36685/13) so here were the steps I did. 
+
+Since I had already paired these before noticing the issue, I needed to remove and add them after these changes so I would suggest either to do this before adding thermostats or removing and adding them after these changes.
+
+#### 2.0 Check whether Spirit has configuration files already
+
+Search for eurotronic configuration files
+
+> find . | grep eurotronic
+
+It should find files with following type of directory structure: /share/open-zwave/config/eurotronic/eur_spiritz.xml . Take a note where the directory of config is and if there already is a eur_spiritz.xml file or not. It may happen that this has been included to the current version of Homeassistant.
+
+#### 2.1 Copy configuration files from OpenZwave repository
+
+Copy the latest version of configuration files from OpenZWave repository https://github.com/OpenZWave/open-zwave/tree/Dev/config.
+If you already had the spirit file, check whether the repository file is newer or not.
+
+Replace current config directory from Homeassistant with the one you downloaded.
+
+#### 2.2 Setup the thermostats
+
+Once configuration has been set up, add thermostats from homeassistant. It should be able to identify them as __EUROtronic EUR_SPIRITZ Wall Radiator Thermostat__ instead of __Unknown thermostat__ and they should work much more reliably.
