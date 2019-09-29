@@ -77,7 +77,7 @@ sensor:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
     base_url: !secret base_url
 
 # Cloud
@@ -201,7 +201,7 @@ recorder:
       - switch
       - zwave
 
-pihole:
+pi_hole:
   host: !secret pihole_host
 
 plex:
