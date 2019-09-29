@@ -74,8 +74,6 @@ sensor:
   - platform: seventeentrack
     username: !secret trackusername
     password: !secret trackpassword
-  - platform: pi_hole
-    host: !secret pihole_host
 
 # Text to speech
 tts:
@@ -202,3 +200,10 @@ recorder:
       - sensor
       - switch
       - zwave
+
+pihole:
+  host: !secret pihole_host
+
+plex:
+  host: !secret plex_host
+  port: 32400
