@@ -137,7 +137,8 @@ switch:
 
 mqtt:
   discovery: true
-  username: 'aki_mqtt'
+  broker: 192.168.1.10
+  username: 'mqtt'
   password: !secret mqtt_password
   birth_message:
     topic: 'hass/status'
@@ -174,12 +175,11 @@ device_tracker:
 ifttt:
   key: !secret ifttt_key
 
-light:
-  - platform: yeelight
-    devices: 
-      192.168.1.22:
-        name: Bedroom light
-        model: color1
+yeelight:
+  devices: 
+    192.168.1.22:
+      name: Bedroom light
+      model: color1
 
 transmission:
   host: !secret transmission_ip
@@ -205,5 +205,4 @@ pi_hole:
   host: !secret pihole_host
 
 plex:
-  host: !secret plex_host
-  port: 32400
+  token: !secret plex_token
