@@ -74,6 +74,15 @@ sensor:
   - platform: seventeentrack
     username: !secret trackusername
     password: !secret trackpassword
+  - platform: mitemp_bt
+    mac: "58:2D:34:37:79:19"
+  - platform: mqtt
+    name: "Aki's weight"
+    state_topic: "miScale/Aki/weight"
+    value_template: "{{ value_json['Weight'] }}"
+    unit_of_measurement: "kg"
+    json_attributes_topic: "miScale/Aki/weight"
+    icon: mdi:scale-bathroom
 
 # Text to speech
 tts:
@@ -178,7 +187,7 @@ ifttt:
 yeelight:
   devices: 
     192.168.1.22:
-      name: Bedroom light
+      name: Living room light
       model: color1
 
 transmission:
@@ -201,8 +210,36 @@ recorder:
       - switch
       - zwave
 
+influxdb:
+  host: 192.168.1.3
+  port: 8086
+  database: home_assistant
+  max_retries: 3
+  default_measurement: state
+  include:
+    domains:
+      - binary_sensor
+      - climate
+      - device_tracker
+      - light
+      - sensor
+      - switch
+      - zwave
+  tags:
+    instance: prod
+    source: hass
 pi_hole:
   host: !secret pihole_host
 
 plex:
   token: !secret plex_token
+
+mobile_app:
+
+rest_command:
+  shutdown_ps:
+    url: !secret PS_shutdown_url
+    method: GET
+  restart_ps:
+    url: !secret PS_restart_url
+    method: GET
