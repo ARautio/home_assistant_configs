@@ -7,6 +7,9 @@ on:
     branches:
       - master
 
+  - mv travis_secrets.yaml secrets.yaml
+
+
 jobs:
   check:
     name: Home Assistant Config Check
@@ -14,5 +17,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
+      - name: Move travis_secret to secret
+        run: ./.github/scripts/move.sh
+        shell: bash
       - name: Run Config Check
         uses: ludeeus/action-ha-config-check@master
+        with:
+          config_path: .
