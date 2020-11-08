@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
       - name: Move travis_secret to secret
-        run: mv travis_secrets.yml secrets.yml
+        run: mv travis_secrets.yaml secrets.yaml
         shell: bash
       - name: Run Config Check
         uses: ludeeus/action-ha-config-check@master
