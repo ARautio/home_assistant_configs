@@ -7,9 +7,6 @@ on:
     branches:
       - master
 
-  - mv travis_secrets.yaml secrets.yaml
-
-
 jobs:
   check:
     name: Home Assistant Config Check
