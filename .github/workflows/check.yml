@@ -17,6 +17,9 @@ jobs:
       - name: Move travis_secret to secret
         run: mv travis_secrets.yaml secrets.yaml
         shell: bash
+      - name: Move travis_sa to sa
+        run: mv travis_service_account.json service_account.json
+        shell: bash
       - name: Run Config Check
         uses: ludeeus/action-ha-config-check@master
         with:

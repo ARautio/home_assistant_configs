@@ -6,12 +6,10 @@ tts:
   - platform: google_translate
     base_url: !secret base_url
 
-
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
-
 
 # Discover some devices automatically
 discovery:
@@ -22,29 +20,28 @@ discovery:
 sensor:
   - platform: yr
     monitored_conditions:
-    - temperature
-    - symbol
+      - temperature
+      - symbol
   - platform: mqtt
     name: Bridge state
-    state_topic: "zigbee2mqtt/bridge/state"
+    state_topic: 'zigbee2mqtt/bridge/state'
     icon: mdi:router-wireless
   - platform: seventeentrack
     username: !secret trackusername
     password: !secret trackpassword
   - platform: mitemp_bt
-    mac: "58:2D:34:37:79:19"
+    mac: '58:2D:34:37:79:19'
   - platform: mqtt
     name: "Aki's weight"
-    state_topic: "miScale/Aki/weight"
+    state_topic: 'miScale/Aki/weight'
     value_template: "{{ value_json['Weight'] }}"
-    unit_of_measurement: "kg"
-    json_attributes_topic: "miScale/Aki/weight"
+    unit_of_measurement: 'kg'
+    json_attributes_topic: 'miScale/Aki/weight'
     icon: mdi:scale-bathroom
-
 
 google_assistant:
   project_id: !secret ga_project_id
-  service_account: !include !secret ga_service_account
+  service_account: !include service_account.json
   exposed_domains:
     - light
     - group
@@ -74,7 +71,6 @@ google_assistant:
     climate.eurotronic_eur_spiritz_wall_radiator_thermostat_heat_2:
       expose: true
       room: Bedroom
-
 
 switch:
   - platform: broadlink
@@ -117,12 +113,6 @@ zwave:
   usb_path: /dev/ttyACM1
   config_path: /share/open-zwave/config/
 
-# This has been commented because 
-# asuswrt:
-#    host: 192.168.1.1
-#    username: !secret device_username
-#    ssh_key: !secret device_ssh_key
-
 device_tracker:
   - platform: nmap_tracker
     hosts: 192.168.1.100-255
@@ -131,7 +121,7 @@ ifttt:
   key: !secret ifttt_key
 
 yeelight:
-  devices: 
+  devices:
     192.168.1.22:
       name: Living room light
       model: color1
